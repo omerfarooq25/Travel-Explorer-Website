@@ -1,0 +1,642 @@
+/* Promo Card Styles for Destination Page */
+.promo-card {
+  position: relative;
+  width: 100%;
+  min-height: 320px;
+  height: 340px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 0;
+  box-shadow: 0 4px 24px rgba(34, 49, 66, 0.18);
+  transition: transform 0.18s, box-shadow 0.18s;
+  cursor: pointer;
+}
+.promo-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(34, 49, 66, 0.28);
+}
+.promo-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.62) 60%,
+    rgba(0, 0, 0, 0.18) 100%
+  );
+  z-index: 1;
+}
+.promo-card-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 0 28px 32px 28px;
+  width: 100%;
+  text-align: left;
+}
+.promo-card-title {
+  font-family: "DM Serif Display", serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.32);
+}
+.promo-card-desc {
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.22);
+}
+.promo-card-weather {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #ffe6b3;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.22);
+}
+@media (max-width: 900px) {
+  .promo-card {
+    min-height: 180px;
+    height: 180px;
+  }
+  .promo-card-content {
+    padding: 0 12px 18px 12px;
+  }
+  .promo-card-title {
+    font-size: 1.2rem;
+  }
+  .promo-card-desc {
+    font-size: 0.95rem;
+  }
+  .promo-card-weather {
+    font-size: 0.95rem;
+  }
+}
+/* body and #headerTitle already defined above, removed duplicate */
+body {
+  font-family: "Lora", serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://plus.unsplash.com/premium_photo-1681487906725-ecd65970ac66?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+      no-repeat center center fixed;
+  background-size: cover;
+}
+#headerTitle {
+  background: #772f1a;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 28px 0 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header-right {
+  display: flex;
+  gap: 20px;
+}
+.header-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+.header-icon i {
+  font-size: 1.5rem;
+}
+.header-icon span {
+  font-size: 0.9rem;
+}
+.header-logo {
+  font-size: 3.2rem;
+}
+.header-title-link {
+  font-family: "DM Serif Display", serif;
+  font-size: 3.2rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.header-title-link:hover {
+  color: #f5853f;
+}
+.header-logo {
+  font-size: 3.2rem;
+}
+.header-title-link {
+  font-family: "DM Serif Display", serif;
+  font-size: 3.2rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.header-title-link:hover {
+  color: #f5853f;
+}
+
+#hero {
+  width: 100%;
+  background: transparent;
+  color: #fff;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0 60px 0;
+  box-shadow: none;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+}
+.hero-content {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.hero-content h2 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 2.5rem;
+  margin-bottom: 18px;
+}
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 28px;
+  color: #fff;
+}
+.cta-btn {
+  display: inline-block;
+  background: #f5853f;
+  color: #fff;
+  font-weight: bold;
+  padding: 18px 40px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s, color 0.2s;
+  margin-top: 32px;
+  margin-bottom: 8px;
+}
+.cta-btn:hover {
+  background: #2d3142;
+  color: #fff;
+}
+
+#search {
+  margin: 40px auto 0 auto;
+  max-width: 500px;
+  background: #fff7ed;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 32px 24px;
+  text-align: center;
+}
+#search h2 {
+  color: #772f1a;
+  font-size: 1.5rem;
+  margin-bottom: 18px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+button {
+  margin-top: 20px;
+  background-color: brown;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background: #772f1a;
+}
+
+/* Removed #demoDestinations styles (not used) */
+
+#destinationsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(340px, 1fr));
+  gap: 40px;
+  padding: 40px 8vw;
+  justify-content: center;
+}
+.destination-card {
+  max-width: 540px;
+  min-width: 320px;
+  min-height: 0;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(34, 49, 66, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  transition: transform 0.25s cubic-bezier(0.4, 2, 0.6, 1), box-shadow 0.2s;
+  position: relative;
+  padding: 0 0 24px 0;
+}
+.destination-card img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 0;
+  margin-bottom: 0;
+  display: block;
+  flex-shrink: 0;
+}
+.card-title {
+  position: static;
+  width: 100%;
+  text-align: center;
+  color: #2d3142;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: none;
+  text-shadow: none;
+  margin: 18px 0 8px 0;
+  padding: 0 18px;
+  z-index: 1;
+  pointer-events: auto;
+}
+.card-desc {
+  font-size: 1.15rem;
+  color: #4f5d75;
+  margin: 0 18px 0 18px;
+  text-align: center;
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  min-height: 0;
+  box-sizing: border-box;
+  display: block;
+}
+.card-weather {
+  font-size: 1rem;
+  color: #f5853f;
+  font-weight: bold;
+  margin-top: 6px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  #destinationsGrid {
+    grid-template-columns: 1fr;
+    padding: 12px;
+    gap: 18px;
+  }
+  .destination-card {
+    max-width: 98vw;
+    min-width: 0;
+  }
+  .destination-card img {
+    height: 180px;
+  }
+  #demoDestinations .destination-card img,
+  .destination-card img {
+    height: 120px;
+  }
+  #destinationsGrid {
+    grid-template-columns: 1fr;
+    padding: 8px;
+    gap: 12px;
+  }
+  .modal-content {
+    padding: 16px;
+    min-width: 200px;
+  }
+}
+
+/* Footer Styles */
+footer {
+  background: #772f1a;
+  color: #fff;
+  text-align: center;
+  padding: 24px 0 12px 0;
+  font-size: 1rem;
+  margin-top: 40px;
+  border-radius: 18px 18px 0 0;
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Modal Styles */
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+  background: #fff;
+  padding: 32px 24px;
+  border-radius: 12px;
+  min-width: 320px;
+  max-width: 90vw;
+  position: relative;
+}
+.close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 2rem;
+  color: #f5853f;
+  cursor: pointer;
+}
+
+/* Spinner Styles */
+.spinner {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #772f1a;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  animation: spin 1s linear infinite;
+  margin: 40px auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error Message Styles */
+#errorMessage {
+  color: #fff;
+  background: #d9534f;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 16px auto;
+  max-width: 400px;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  #headerTitle {
+    font-size: 1.2rem;
+    padding: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  #headerTitle h1 {
+    font-size: 1.3rem;
+  }
+  #headerTitle nav {
+    gap: 12px;
+    font-size: 1rem;
+  }
+  #hero {
+    padding: 32px 0 24px 0;
+  }
+  .hero-content h2 {
+    font-size: 1.5rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .cta-btn {
+    padding: 10px 18px;
+    font-size: 1rem;
+  }
+  #search {
+    padding: 16px 8px;
+  }
+  #demoDestinations .destination-card img,
+  .destination-card img {
+    height: 120px;
+  }
+  #destinationsGrid {
+    grid-template-columns: 1fr;
+    padding: 8px;
+    gap: 12px;
+  }
+  .modal-content {
+    padding: 16px;
+    min-width: 200px;
+  }
+}
+
+/* Header search input with icon */
+.header-search-form {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+}
+.header-search-input-wrapper {
+  position: relative;
+  width: 180px;
+}
+.header-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #772f1a;
+  font-size: 1.1rem;
+  pointer-events: none;
+  z-index: 2;
+}
+.header-search-input-wrapper input[type="text"] {
+  width: 100%;
+  padding: 7px 10px 7px 34px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+@media (max-width: 600px) {
+  .header-search-input-wrapper {
+    width: 110px;
+  }
+  .header-search-input-wrapper input[type="text"] {
+    font-size: 0.9rem;
+    padding: 6px 8px 6px 28px;
+  }
+}
+
+.destination-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  footer {
+    padding: 12px 0 8px 0;
+    font-size: 0.9rem;
+  }
+  overflow: hidden;
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+}
+
+.destination-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.destination-card .card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.destination-card .card-weather-btn {
+  margin-top: 8px;
+  background: #f2a65a;
+  color: #772f1a;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.destination-card .card-weather-btn:hover {
+  background: #772f1a;
+  color: #fff;
+}
+
+/* Modal Styles */
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background: #fff;
+  padding: 32px 24px;
+  border-radius: 12px;
+  min-width: 320px;
+  max-width: 90vw;
+}
+
+#searchModal input[type="text"],
+#searchModal select,
+#searchModal input[type="date"] {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+#searchModal label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+#searchModal form > br {
+  display: none;
+}
+#searchModal .modal-content {
+  background: linear-gradient(135deg, #fff7ed 60%, #f5853f 100%);
+  padding: 40px 32px 32px 32px;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(34, 49, 66, 0.18);
+  border: 3px solid #f5853f;
+  min-width: 340px;
+  max-width: 95vw;
+  position: relative;
+  animation: popIn 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+#searchModal h2 {
+  color: #f5853f;
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-size: 2rem;
+  margin-bottom: 18px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+#searchModal button[type="submit"] {
+  background: #f5853f;
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 32px;
+  border-radius: 24px;
+  border: none;
+  font-size: 1.1rem;
+  margin-top: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s, color 0.2s;
+}
+#searchModal button[type="submit"]:hover {
+  background: #2d3142;
+  color: #fff;
+}
+#searchModal .close {
+  color: #f5853f;
+  font-size: 2rem;
+  top: 16px;
+  right: 20px;
+  transition: color 0.2s;
+}
+#searchModal .close:hover {
+  color: #2d3142;
+}
+@keyframes popIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

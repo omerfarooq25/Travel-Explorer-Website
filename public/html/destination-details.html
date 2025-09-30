@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Destination Details</title>
+    <link rel="stylesheet" href="/public/css/styles.css" />
+    <link rel="stylesheet" href="/public/css/destination-details.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=DM+Serif+Display:ital,wght@0,400;1,400&family=Lora:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header id="headerTitle">
+      <div class="header-content">
+        <div class="header-left">
+          <span class="header-logo">🌍</span>
+          <a href="index.html" class="header-title-link">Travel Explorer</a>
+        </div>
+        <div class="header-right">
+          <form class="header-search-form">
+            <div class="header-search-input-wrapper">
+              <span class="header-search-icon"
+                ><i class="fas fa-search"></i
+              ></span>
+              <input type="text" placeholder="search" />
+            </div>
+          </form>
+          <div class="header-icon" id="exploreBtn">
+            <i class="fas fa-compass"></i>
+            <span>Explore</span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="details-container">
+        <div class="details-main-row" style="position: relative">
+          <div class="details-carousel">
+            <div
+              class="carousel-images-wrapper"
+              style="position: relative; width: 100%; height: 100%"
+            >
+              <div class="carousel-images" id="carouselImages"></div>
+            </div>
+            <!-- Explore form in whitespace area -->
+            <div id="explorePopupMenu" class="explore-popup-menu">
+              <form id="exploreForm" class="explore-form">
+                <label for="exploreDestination">Destination:</label>
+                <input
+                  type="text"
+                  id="exploreDestination"
+                  name="destination"
+                  placeholder="Enter destination"
+                  required
+                />
+                <label for="exploreTripType">Trip Type:</label>
+                <select id="exploreTripType" name="tripType" required>
+                  <option value="">Select</option>
+                  <option value="solo">Solo</option>
+                  <option value="family">Family</option>
+                  <option value="friends">Friends</option>
+                  <option value="weekly">Weekly</option>
+                  <option value="rail">Rail Journeys</option>
+                  <option value="sea">Sea Journeys</option>
+                  <option value="jungle">Jungle</option>
+                </select>
+                <label for="exploreDate">Date:</label>
+                <input type="date" id="exploreDate" name="tripDate" required />
+                <button type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+          <div class="details-info">
+            <div class="details-title" id="detailsTitle"></div>
+            <div class="details-section">
+              <div class="details-label">About this destination</div>
+              <div class="details-desc" id="detailsDesc"></div>
+            </div>
+            <div class="details-section">
+              <div class="details-label">Weather</div>
+              <div class="details-weather" id="detailsWeather"></div>
+            </div>
+            <div class="details-section">
+              <div class="details-label">Pricing</div>
+              <div class="details-pricing" id="detailsPricing"></div>
+            </div>
+            <div class="details-section">
+              <div class="details-label">Travel Systems Available</div>
+              <div class="details-travel" id="detailsTravel"></div>
+            </div>
+          </div>
+        </div>
+        <div class="details-section comments-section">
+          <div class="details-label">Comments & Reviews</div>
+          <div id="commentsList">
+            <div class="comment">
+              <div class="comment-user">Alice</div>
+              <div class="comment-text">
+                Absolutely loved my trip here! Highly recommended.
+              </div>
+            </div>
+            <div class="comment">
+              <div class="comment-user">Bob</div>
+              <div class="comment-text">
+                Great food and friendly people. Will visit again.
+              </div>
+            </div>
+          </div>
+          <form
+            class="add-comment"
+            id="addCommentForm"
+            onsubmit="return false;"
+          >
+            <input
+              type="text"
+              id="commentUser"
+              placeholder="Your name"
+              required
+            />
+            <textarea
+              id="commentText"
+              placeholder="Add a comment..."
+              required
+            ></textarea>
+            <button type="submit">Post</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="/public/Js/destination-details.js"></script>
+  </body>
+</html>
