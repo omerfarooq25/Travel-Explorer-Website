@@ -283,16 +283,23 @@ function renderDestinationDetails(destKey) {
   document.getElementById("detailsDesc").innerHTML = dest.desc;
   document.getElementById("detailsPricing").textContent = dest.pricing;
   document.getElementById("detailsTravel").textContent = dest.travel;
-  // Carousel images
-  const carouselImages = document.getElementById("carouselImages");
-  carouselImages.innerHTML = "";
-  dest.images.forEach((src, i) => {
-    const img = document.createElement("img");
-    img.src = src;
-    img.alt = dest.title + " photo " + (i + 1);
-    img.className = "carousel-img" + (i === 0 ? " active" : "");
-    carouselImages.appendChild(img);
-  });
+  // Set hero cover photo
+  const heroImg = document.getElementById("detailsHeroImg");
+  if (heroImg) {
+    heroImg.src = dest.images[0];
+    heroImg.alt = dest.title + " cover photo";
+  }
+  // Render gallery images (excluding the first image)
+  const gallery = document.getElementById("detailsGallery");
+  if (gallery) {
+    gallery.innerHTML = "";
+    dest.images.slice(1).forEach((src, i) => {
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = dest.title + " gallery photo " + (i + 1);
+      gallery.appendChild(img);
+    });
+  }
   // Set background image to the first image of the destination
   document.body.style.background = `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('${dest.images[0]}') no-repeat center center fixed`;
   document.body.style.backgroundSize = "cover";
