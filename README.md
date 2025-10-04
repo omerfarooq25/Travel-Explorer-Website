@@ -66,7 +66,7 @@ Replace placeholders in your JavaScript file with your keys.
 
 ### 🎨 Inspiration & Design Notes
 
-Took inspiration from https://www.exploreworldwide.com/
+Took inspiration from https://www.exploreworldwide.com/ , https://www.exploreworld.com/
  for layout and travel vibe.
 
 Fonts were chosen from Google Fonts
