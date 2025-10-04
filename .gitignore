@@ -1,0 +1,30 @@
+# Node, build, and OS files
+node_modules/
+dist/
+build/
+.DS_Store
+Thumbs.db
+*.log
+.env
+.vscode/
+*.tmp
+*.bak
+*.swp
+*.swo
+*.idea/
+*.iml
+# Ignore compiled JS/CSS
+*.min.js
+*.min.css
+# Ignore coverage/test output
+coverage/
+__pycache__/
+*.pyc
+# Ignore system files
+*.orig
+*.rej
+# Ignore lock files
+package-lock.json
+yarn.lock
+# Ignore generated files
+public/*.map
