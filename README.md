@@ -105,7 +105,7 @@ This project is licensed under the MIT License
 
 # 🙌 Acknowledgments
 
-Explore Worldwide --- https://www.exploreworldwide.com/
+Explore Worldwide, Explore world --- https://www.exploreworldwide.com/ , https://www.exploreworld.com/
  for design inspiration
 
 Google Fonts --- https://fonts.google.com/
