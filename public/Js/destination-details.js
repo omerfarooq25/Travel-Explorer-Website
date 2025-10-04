@@ -289,15 +289,25 @@ function renderDestinationDetails(destKey) {
     heroImg.src = dest.images[0];
     heroImg.alt = dest.title + " cover photo";
   }
-  // Render gallery images (excluding the first image)
+  // Render gallery images (excluding the first image) as cards with overlay
   const gallery = document.getElementById("detailsGallery");
   if (gallery) {
     gallery.innerHTML = "";
     dest.images.slice(1).forEach((src, i) => {
+      const card = document.createElement("div");
+      card.className = "gallery-card";
       const img = document.createElement("img");
       img.src = src;
       img.alt = dest.title + " gallery photo " + (i + 1);
-      gallery.appendChild(img);
+      const overlay = document.createElement("div");
+      overlay.className = "gallery-overlay";
+      const title = document.createElement("div");
+      title.className = "gallery-title";
+      title.textContent = dest.title.split(",")[0];
+      overlay.appendChild(title);
+      card.appendChild(img);
+      card.appendChild(overlay);
+      gallery.appendChild(card);
     });
   }
   // Set background image to the first image of the destination
