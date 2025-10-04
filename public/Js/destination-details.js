@@ -71,7 +71,7 @@ const DESTINATIONS = {
     title: "Rio de Janeiro, Brazil",
     countryCode: "BR",
     images: [
-      "https://images.unsplash.com/photo-1700677866571-43199bcbc593?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2hyaXN0JTIwdGhlJTIwcmVkZWVtZXJ8ZW58MHwwfDB8fHww",
+      "https://images.unsplash.com/photo-1637600101556-6c149e6919a9?q=80&w=1334&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=800&q=80",
     ],

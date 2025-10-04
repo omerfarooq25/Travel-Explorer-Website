@@ -72,12 +72,20 @@
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 4px 24px rgba(34, 49, 66, 0.13);
+  padding-top: 10px;
+  /* Remove left/right padding so image fills container */
+  padding-left: 0;
+  padding-right: 0;
+  background: none;
 }
 .details-hero img {
   width: 100%;
   height: 340px;
   object-fit: cover;
   display: block;
+  border-radius: 18px;
+  /* Ensure image matches border radius of container */
+  margin: 0;
 }
 @media (max-width: 900px) {
   .details-hero img {
@@ -253,32 +261,32 @@
   color: #4f5d75;
   font-size: 1.08rem;
   margin-top: 6px;
-}
-.comments-section {
-  background: #f7f7fa;
-  border-radius: 12px;
-  padding: 18px;
   margin-top: 100px;
 }
 .comment {
+  background: #f7f7fa;
   border-bottom: 1px solid #eee;
   padding: 10px 0;
+ margin-top: 100px;
 }
 .comment:last-child {
   border-bottom: none;
+ border-bottom: 1px solid #eee;
 }
-.comment-user {
+.comment-user { 
   font-weight: bold;
   color: #772f1a;
+ border-bottom: none;
 }
 .comment-text {
   color: #2d3142;
   margin-top: 2px;
+  color: #772f1a;
 }
 .add-comment {
   margin-top: 18px;
-  display: flex;
-  gap: 8px;
+  display: flex;;
+  gap: 8px;p: 2px;
 }
 .add-comment input,
 .add-comment textarea {
@@ -287,6 +295,7 @@
   padding: 6px;
   font-size: 1rem;
   resize: none;
+  border-radius: 5px;
 }
 .add-comment button {
   background: #f5853f;
@@ -295,6 +304,12 @@
   border-radius: 5px;
   padding: 8px 18px;
   font-weight: bold;
+  cursor: pointer;
+ border: none;
+  }
+.add-comment button:hover {
+  background: #772f1a;
+ font-weight: bold;
   cursor: pointer;
 }
 .add-comment button:hover {
