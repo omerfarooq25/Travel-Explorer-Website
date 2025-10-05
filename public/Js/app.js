@@ -9,26 +9,6 @@ const destinationsGrid = document.getElementById("destinationsGrid");
 const loadingSpinner = document.getElementById("loadingSpinner");
 const errorMessage = document.getElementById("errorMessage");
 
-// Show/hide loading spinner
-function setLoading(isLoading) {
-  if (loadingSpinner)
-    loadingSpinner.style.display = isLoading ? "block" : "none";
-}
-
-// Show error message
-function showError(msg) {
-  if (errorMessage) {
-    errorMessage.textContent = msg;
-    errorMessage.style.display = "block";
-  }
-}
-function hideError() {
-  if (errorMessage) {
-    errorMessage.textContent = "";
-    errorMessage.style.display = "none";
-  }
-}
-
 // Render destination cards
 function renderDestinations(destinations) {
   if (!destinationsGrid) return;
