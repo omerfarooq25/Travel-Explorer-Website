@@ -328,77 +328,77 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(initCarousel, 0);
 });
 
-// --- OpenWeatherMap Real-Time Weather Integration ---
-const OPENWEATHERMAP_API_KEY = "3be48b0bb896f18e2bdb99b4a7ecfb00"; // User's OpenWeatherMap API key
-function fetchWeather(city, callback) {
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
-    city
-  )}&appid=${OPENWEATHERMAP_API_KEY}&units=metric`;
-  console.log("Weather API Query:", url); // Debug: show the query
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("Weather API Response:", data); // Debug: show the response
-      if (data && data.weather && data.weather[0] && data.main) {
-        const weatherText = `Weather: ${Math.round(
-          data.main.temp
-        )}°C, ${data.weather[0].description.replace(/\b\w/g, (l) =>
-          l.toUpperCase()
-        )}`;
-        callback(weatherText);
-      } else {
+  // --- OpenWeatherMap Real-Time Weather Integration ---
+  const OPENWEATHERMAP_API_KEY = "3be48b0bb896f18e2bdb99b4a7ecfb00"; // User's OpenWeatherMap API key
+  function fetchWeather(city, callback) {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
+      city
+    )}&appid=${OPENWEATHERMAP_API_KEY}&units=metric`;
+    console.log("Weather API Query:", url); // Debug: show the query
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Weather API Response:", data); // Debug: show the response
+        if (data && data.weather && data.weather[0] && data.main) {
+          const weatherText = `Weather: ${Math.round(
+            data.main.temp
+          )}°C, ${data.weather[0].description.replace(/\b\w/g, (l) =>
+            l.toUpperCase()
+          )}`;
+          callback(weatherText);
+        } else {
+          callback("Weather: Not available");
+        }
+      })
+      .catch((err) => {
+        console.log("Weather API Error:", err);
         callback("Weather: Not available");
-      }
-    })
-    .catch((err) => {
-      console.log("Weather API Error:", err);
-      callback("Weather: Not available");
-    });
-}
+      });
+  }
 
-// Update renderDestinationDetails to use real-time weather (direct definition)
-function renderDestinationDetails(destKey) {
-  const dest = DESTINATIONS[destKey];
-  if (!dest) return;
-  document.getElementById("detailsTitle").textContent = dest.title;
-  document.getElementById("detailsDesc").innerHTML = dest.desc;
-  showPricing(dest);
-  document.getElementById("detailsTravel").textContent = dest.travel;
-  // Set hero cover photo
-  const heroImg = document.getElementById("detailsHeroImg");
-  if (heroImg) {
-    heroImg.src = dest.images[0];
-    heroImg.alt = dest.title + " cover photo";
-  }
-  // Render gallery images (excluding the first image) as cards with overlay
-  const gallery = document.getElementById("detailsGallery");
-  if (gallery) {
-    gallery.innerHTML = "";
-    dest.images.slice(1).forEach((src, i) => {
-      const card = document.createElement("div");
-      card.className = "gallery-card";
-      const img = document.createElement("img");
-      img.src = src;
-      img.alt = dest.title + " gallery photo " + (i + 1);
-      const overlay = document.createElement("div");
-      overlay.className = "gallery-overlay";
-      const title = document.createElement("div");
-      title.className = "gallery-title";
-      title.textContent = dest.title.split(",")[0];
-      overlay.appendChild(title);
-      card.appendChild(img);
-      card.appendChild(overlay);
-      gallery.appendChild(card);
+  // Update renderDestinationDetails to use real-time weather (direct definition)
+  function renderDestinationDetails(destKey) {
+    const dest = DESTINATIONS[destKey];
+    if (!dest) return;
+    document.getElementById("detailsTitle").textContent = dest.title;
+    document.getElementById("detailsDesc").innerHTML = dest.desc;
+    showPricing(dest);
+    document.getElementById("detailsTravel").textContent = dest.travel;
+    // Set hero cover photo
+    const heroImg = document.getElementById("detailsHeroImg");
+    if (heroImg) {
+      heroImg.src = dest.images[0];
+      heroImg.alt = dest.title + " cover photo";
+    }
+    // Render gallery images (excluding the first image) as cards with overlay
+    const gallery = document.getElementById("detailsGallery");
+    if (gallery) {
+      gallery.innerHTML = "";
+      dest.images.slice(1).forEach((src, i) => {
+        const card = document.createElement("div");
+        card.className = "gallery-card";
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = dest.title + " gallery photo " + (i + 1);
+        const overlay = document.createElement("div");
+        overlay.className = "gallery-overlay";
+        const title = document.createElement("div");
+        title.className = "gallery-title";
+        title.textContent = dest.title.split(",")[0];
+        overlay.appendChild(title);
+        card.appendChild(img);
+        card.appendChild(overlay);
+        gallery.appendChild(card);
+      });
+    }
+    // Set background image to the first image of the destination
+    document.body.style.background = `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('${dest.images[0]}') no-repeat center center fixed`;
+    document.body.style.backgroundSize = "cover";
+    // Fetch real-time weather with city and country code
+    let cityName = dest.title.split(",")[0].trim();
+    let countryCode = dest.countryCode || "";
+    let query = countryCode ? `${cityName},${countryCode}` : cityName;
+    fetchWeather(query, function (weatherText) {
+      document.getElementById("detailsWeather").textContent = weatherText;
     });
   }
-  // Set background image to the first image of the destination
-  document.body.style.background = `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('${dest.images[0]}') no-repeat center center fixed`;
-  document.body.style.backgroundSize = "cover";
-  // Fetch real-time weather with city and country code
-  let cityName = dest.title.split(",")[0].trim();
-  let countryCode = dest.countryCode || "";
-  let query = countryCode ? `${cityName},${countryCode}` : cityName;
-  fetchWeather(query, function (weatherText) {
-    document.getElementById("detailsWeather").textContent = weatherText;
-  });
-}
