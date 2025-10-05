@@ -326,6 +326,15 @@ document.addEventListener("DOMContentLoaded", function () {
     startAutoScroll();
   }
   setTimeout(initCarousel, 0);
+
+  // Explore button functionality
+  const exploreBtn = document.getElementById("exploreBtn");
+
+  if (exploreBtn) {
+    exploreBtn.addEventListener("click", function () {
+      window.location.href = "Destination.html";
+    });
+  }
 });
 
   // --- OpenWeatherMap Real-Time Weather Integration ---
