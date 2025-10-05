@@ -9,7 +9,10 @@ Planning a trip can be overwhelming without easy access to destination info. **T
 - 🌦️ Weather integration using **OpenWeatherMap API**  
 - 🖼️ High-quality images from **Unsplash Developers API**  
 - 📱 Responsive design with HTML, CSS, and JavaScript  
-- 🎨 Font styling inspired by [Google Fonts](https://fonts.google.com/)  
+- 🎨 Font styling inspired by [Google Fonts](https://fonts.google.com/)
+- 🔍 **Dynamic Location Search (Upcoming)** – Future update will support **real-time location-based image and weather search** using the Unsplash and OpenWeatherMap APIs.  
+- ⚡ **Search Option (To be implemented)** – Current project focuses on front-end development; search and filtering features will be added in upcoming updates.
+
 
 ---
 
@@ -65,20 +68,24 @@ Get a free Unsplash API key
 Replace placeholders in your JavaScript file with your keys.
 
 ### 🎨 Inspiration & Design Notes
+- Took inspiration from https://www.exploreworldwide.com/ , https://www.exploreworld.com/ for layout and interface design.
 
-Took inspiration from https://www.exploreworldwide.com/ , https://www.exploreworld.com/
- for layout and travel vibe.
+- Fonts selected from Google Fonts
+  
+- Integrated Unsplash Developers API for destination photos.
+  
+- Images were not always accurate, so manual corrections were done.
+  _Hence, no automated photo slideshow was implemented._
+  
+- Project inspired by travel websites focusing on trip planning and booking experiences, which will be extended in future versions.
+  
+- Enhancement of featured destination descriptions is under development.
 
-Fonts were chosen from Google Fonts
-.
-
-Used Unsplash API for destination photos, but since image results weren’t always accurate, manual corrections were done.
-
-# 📌 That’s why no automated slideshow was implemented.
+  **_📌 That’s why no automated slideshow was implemented._**
 
 # 🤖 Development Process
 
-Took help from ChatGPT, Google Gemini, and GitHub Copilot for:
+Took help from ChatGPT, Google Gemini Code Assist, and GitHub Copilot for:
 
 - Enhancements and bug fixes
 
@@ -90,13 +97,19 @@ Took help from ChatGPT, Google Gemini, and GitHub Copilot for:
 
 # 📌 Roadmap / Future Improvements
 
-- Add destination photo slideshow once more reliable API integration is achieved
+- 🔍 Implement fully functional search and filter using API integration.
 
-- Improve search and filter options for destinations
+- 🌎 Dynamic Location Search Support – Use Unsplash API for destination image retrieval and OpenWeatherMap API for weather updates for any location in the world.
 
-- Add user login system to save favorite trips
+- 🖼️ Add destination photo slideshow once image accuracy improves.
 
-- Enhance UI animations for better experience
+- 📝 Enhance featured destination descriptions with more interactivity.
+
+- 👤 Add user accounts to save favorite trips and itineraries.
+
+- ⚙️ Backend integration using Node.js / Express for trip management.
+
+- 🤖 AI-based travel recommendations for personalized trip suggestions.
 
 # 📜 License
 
@@ -105,14 +118,18 @@ This project is licensed under the MIT License
 
 # 🙌 Acknowledgments
 
-Explore Worldwide, Explore world --- https://www.exploreworldwide.com/ , https://www.exploreworld.com/
+- Explore Worldwide, Explore world --- https://www.exploreworldwide.com/ , https://www.exploreworld.com/
  for design inspiration
 
-Google Fonts --- https://fonts.google.com/
+- Google Fonts --- https://fonts.google.com/
  for typography
 
-Unsplash Developers --- https://unsplash.com/developers
+- Unsplash Developers --- https://unsplash.com/developers
  for free high-quality images
 
-OpenWeatherMap --- https://openweathermap.org/api
+- OpenWeatherMap --- https://openweathermap.org/api
  for weather data
+
+- MDN Web Docs --- https://developer.mozilla.org/en-US/
+  for Web Development References
+- AI Tools : ChatGPT, Gemini, GitHub Copilot – For enhancement, design, and debugging support
