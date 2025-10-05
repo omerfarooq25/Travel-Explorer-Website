@@ -28,7 +28,6 @@
   right: 0;
   bottom: 0;
   height: 38%;
-  /* overlay removed per request */
   background: transparent;
   display: flex;
   align-items: flex-end;
@@ -41,8 +40,6 @@
   font-weight: 700;
   margin: 0;
 }
-
-/* remove visible text overlay on gallery images but keep gradient overlay if desired */
 .gallery-card .gallery-title {
   display: none;
 }
@@ -197,13 +194,13 @@
   box-shadow: 0 2px 8px rgba(34, 49, 66, 0.03);
 }
 
-/* Make the comment section label stand out a bit more */
+/* Comment section label */
 .comments-section .details-label {
   font-size: 1.18rem;
   color: #5a1f11;
 }
 
-/* -------------- COMMENTS (fixed spacing) -------------- */
+/* -------------- COMMENTS -------------- */
 .details-travel {
   color: #4f5d75;
   font-size: 1.02rem;

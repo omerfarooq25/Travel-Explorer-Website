@@ -1,6 +1,6 @@
 // Destination data for each card
-// Add country codes to each destination for accurate weather API calls
 const DESTINATIONS = {
+
   Paris: {
     title: "Paris, France",
     countryCode: "FR",
@@ -20,6 +20,7 @@ const DESTINATIONS = {
     priceUSD: 1500,
     travel: "International flights, Metro, Buses, Trains, Taxis",
   },
+
   Tokyo: {
     title: "Tokyo, Japan",
     countryCode: "JP",
@@ -41,6 +42,7 @@ const DESTINATIONS = {
     priceUSD: 1800,
     travel: "International flights, Metro, Trains, Buses, Taxis",
   },
+
   NewYork: {
     title: "New York, USA",
     countryCode: "US",
@@ -59,6 +61,7 @@ const DESTINATIONS = {
     priceUSD: 2000,
     travel: "International flights, Subway, Buses, Taxis",
   },
+
   Sydney: {
     title: "Sydney, Australia",
     countryCode: "AU",
@@ -77,6 +80,7 @@ const DESTINATIONS = {
     priceUSD: 2200,
     travel: "International flights, Trains, Ferries, Buses, Taxis",
   },
+
   CapeTown: {
     title: "Cape Town, South Africa",
     countryCode: "ZA",
@@ -95,6 +99,7 @@ const DESTINATIONS = {
     priceUSD: 1700,
     travel: "International flights, Buses, Taxis, Car rentals",
   },
+
   Rio: {
     title: "Rio de Janeiro, Brazil",
     countryCode: "BR",
@@ -111,6 +116,7 @@ const DESTINATIONS = {
     priceUSD: 1600,
     travel: "International flights, Metro, Buses, Taxis",
   },
+
   Rome: {
     title: "Rome, Italy",
     countryCode: "IT",
@@ -127,6 +133,7 @@ const DESTINATIONS = {
     priceUSD: 1900,
     travel: "International flights, Metro, Buses, Taxis",
   },
+
   Dubai: {
     title: "Dubai, UAE",
     countryCode: "AE",
@@ -145,6 +152,7 @@ const DESTINATIONS = {
     priceUSD: 2500,
     travel: "International flights, Metro, Buses, Taxis",
   },
+
   London: {
     title: "London, UK",
     countryCode: "GB",
@@ -161,6 +169,7 @@ const DESTINATIONS = {
     priceUSD: 2100,
     travel: "International flights, Underground, Buses, Taxis",
   },
+
   Bangkok: {
     title: "Bangkok, Thailand",
     countryCode: "TH",
@@ -182,6 +191,7 @@ const DESTINATIONS = {
 // Convert USD amounts in a string to Indian Rupees (INR) using a fixed exchange rate.
 function convertUSDStringToINR(str) {
   if (!str || typeof str !== "string") return str;
+
   // Approximate conversion rate (USD -> INR). Adjust if you want a different rate.
   const USD_TO_INR = 83.5;
   return str.replace(/\$([\d,]+(?:\.\d+)?)/g, function (_, num) {
@@ -248,12 +258,10 @@ function showPricing(dest) {
     el.textContent = `Average trip cost: ${usdStr} — ${inrStr} (approx.)`;
   });
 }
-
 function getQueryParam(name) {
   const url = new URL(window.location.href);
   return url.searchParams.get(name);
 }
-
 function renderDestinationDetails(destKey) {
   const dest = DESTINATIONS[destKey];
   if (!dest) return;
@@ -261,19 +269,11 @@ function renderDestinationDetails(destKey) {
   document.getElementById("detailsDesc").innerHTML = dest.desc;
   showPricing(dest);
   document.getElementById("detailsTravel").textContent = dest.travel;
-  // Carousel images
-  const carouselImages = document.getElementById("carouselImages");
-  carouselImages.innerHTML = "";
-  dest.images.forEach((src, i) => {
-    const img = document.createElement("img");
-    img.src = src;
-    img.alt = dest.title + " photo " + (i + 1);
-    img.className = "carousel-img" + (i === 0 ? " active" : "");
-    carouselImages.appendChild(img);
-  });
+  
   // Set background image to the first image of the destination
   document.body.style.background = `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('${dest.images[0]}') no-repeat center center fixed`;
   document.body.style.backgroundSize = "cover";
+  
   // Fetch real-time weather
   let cityName = dest.title.split(",")[0];
   fetchWeather(cityName, function (weatherText) {
@@ -307,63 +307,8 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-  // Carousel logic (single, robust version)
-  function initCarousel() {
-    var images = document.querySelectorAll(".carousel-img");
-    var current = 0;
-    var prevBtn = document.getElementById("carouselPrev");
-    var nextBtn = document.getElementById("carouselNext");
-    var carousel = document.querySelector(".carousel-images");
-    var intervalId = null;
-    function showImage(idx) {
-      images.forEach(function (img, i) {
-        img.classList.toggle("active", i === idx);
-      });
-      if (prevBtn) prevBtn.style.display = "flex";
-      if (nextBtn) nextBtn.style.display = "flex";
-    }
-    function nextImage() {
-      current = (current + 1) % images.length;
-      showImage(current);
-    }
-    function prevImage() {
-      current = (current - 1 + images.length) % images.length;
-      showImage(current);
-    }
-    function startAutoScroll() {
-      if (intervalId) clearInterval(intervalId);
-      intervalId = setInterval(nextImage, 2000);
-    }
-    function stopAutoScroll() {
-      if (intervalId) clearInterval(intervalId);
-      intervalId = null;
-    }
-    function resetAutoScroll() {
-      stopAutoScroll();
-      startAutoScroll();
-    }
-    if (prevBtn)
-      prevBtn.onclick = function () {
-        prevImage();
-        resetAutoScroll();
-      };
-    if (nextBtn)
-      nextBtn.onclick = function () {
-        nextImage();
-        resetAutoScroll();
-      };
-    if (carousel) {
-      carousel.onmouseenter = stopAutoScroll;
-      carousel.onmouseleave = startAutoScroll;
-    }
-    showImage(current);
-    startAutoScroll();
-  }
-  setTimeout(initCarousel, 0);
-
   // Explore button functionality
   const exploreBtn = document.getElementById("exploreBtn");
-
   if (exploreBtn) {
     exploreBtn.addEventListener("click", function () {
       window.location.href = "Destination.html";
