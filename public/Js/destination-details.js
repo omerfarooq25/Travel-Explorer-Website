@@ -13,6 +13,7 @@ const DESTINATIONS = {
     weather: "Weather: 18°C, Clear Sky",
     pricing:
       "Average trip cost: $1,500 (includes flights, accommodation, and meals for 5 days)",
+    priceUSD: 1500,
     travel: "International flights, Metro, Buses, Trains, Taxis",
   },
   Tokyo: {
@@ -26,6 +27,7 @@ const DESTINATIONS = {
     desc: `Tokyo is a vibrant metropolis blending tradition and technology. Explore cherry blossoms, neon-lit streets, and ancient temples.<br><br><strong>Culture:</strong> Tokyo's culture is a fascinating mix of ancient traditions and cutting-edge innovation. Experience tea ceremonies, sumo wrestling, anime, and a deep respect for etiquette.<br><strong>What makes it special:</strong> Tokyo is the heart of Japanese pop culture, technology, and cuisine. The city is famous for its punctual trains, themed cafés, and vibrant festivals.<br><br><strong>Best time to visit:</strong> March to May (cherry blossom season) and October to November.<br><strong>Main attractions:</strong> Sensoji Temple, Shibuya Crossing, Tokyo Tower, Tsukiji Market, Akihabara.<br><strong>Why visit:</strong> Experience futuristic cityscapes, unique pop culture, and world-class cuisine.`,
     weather: "Weather: 22°C, Partly Cloudy",
     pricing: "Average trip cost: $1,800 (5 days)",
+    priceUSD: 1800,
     travel: "International flights, Metro, Trains, Buses, Taxis",
   },
   NewYork: {
@@ -39,6 +41,7 @@ const DESTINATIONS = {
     desc: `The city that never sleeps. Iconic for Times Square, Central Park, and world-class entertainment.<br><br><strong>Culture:</strong> New York is a melting pot of cultures, languages, and cuisines. The city is known for its fast pace, diversity, and creative energy. Broadway, jazz, and street art thrive here.<br><strong>What makes it special:</strong> NYC is the epicenter of finance, fashion, and the arts. Its skyline, food scene, and neighborhoods are legendary.<br><br><strong>Best time to visit:</strong> April to June, September to early November.<br><strong>Main attractions:</strong> Statue of Liberty, Central Park, Times Square, Broadway, Empire State Building.<br><strong>Why visit:</strong> Diverse culture, food, shopping, and endless things to do.`,
     weather: "Weather: 20°C, Sunny",
     pricing: "Average trip cost: $2,000 (5 days)",
+    priceUSD: 2000,
     travel: "International flights, Subway, Buses, Taxis",
   },
   Sydney: {
@@ -52,6 +55,7 @@ const DESTINATIONS = {
     desc: `Home to the Sydney Opera House and beautiful beaches. Enjoy surfing and vibrant city life.<br><br><strong>Culture:</strong> Sydney's culture is relaxed, outdoorsy, and multicultural. Locals love sports, the beach, and a good barbecue. The city hosts many festivals and art events.<br><strong>What makes it special:</strong> Sydney is famous for its harbor, surf culture, and friendly vibe. Its natural beauty and cosmopolitan lifestyle attract visitors worldwide.<br><br><strong>Best time to visit:</strong> September to November, March to May.<br><strong>Main attractions:</strong> Opera House, Harbour Bridge, Bondi Beach, Taronga Zoo.<br><strong>Why visit:</strong> Outdoor adventures, iconic landmarks, and laid-back lifestyle.`,
     weather: "Weather: 25°C, Sunny",
     pricing: "Average trip cost: $2,200 (5 days)",
+    priceUSD: 2200,
     travel: "International flights, Trains, Ferries, Buses, Taxis",
   },
   CapeTown: {
@@ -65,6 +69,7 @@ const DESTINATIONS = {
     desc: `A stunning coastal city with Table Mountain views and rich cultural heritage.<br><br><strong>Culture:</strong> Cape Town is a blend of African, European, and Asian influences. The city is known for its music, art, and vibrant township life. Local cuisine features seafood, braai (barbecue), and Cape Malay dishes.<br><strong>What makes it special:</strong> Cape Town's landscapes, biodiversity, and history are unique. It's a gateway to wine country and wildlife adventures.<br><br><strong>Best time to visit:</strong> March to May, September to November.<br><strong>Main attractions:</strong> Table Mountain, Robben Island, V&A Waterfront, Cape Point.<br><strong>Why visit:</strong> Scenic beauty, adventure sports, and diverse culture.`,
     weather: "Weather: 19°C, Windy",
     pricing: "Average trip cost: $1,700 (5 days)",
+    priceUSD: 1700,
     travel: "International flights, Buses, Taxis, Car rentals",
   },
   Rio: {
@@ -78,6 +83,7 @@ const DESTINATIONS = {
     desc: `Famous for Carnival, Christ the Redeemer, and lively beaches like Copacabana.<br><br><strong>Culture:</strong> Rio's culture is colorful, musical, and full of life. Samba, bossa nova, and Carnival are at its heart. Locals (Cariocas) are known for their warmth and love of celebration.<br><strong>What makes it special:</strong> Rio's natural setting, music, and festive spirit are unmatched. The city pulses with energy and joy.<br><br><strong>Best time to visit:</strong> December to March.<br><strong>Main attractions:</strong> Christ the Redeemer, Sugarloaf Mountain, Copacabana Beach, Ipanema Beach.<br><strong>Why visit:</strong> Vibrant festivals, beautiful landscapes, and exciting nightlife.`,
     weather: "Weather: 28°C, Sunny",
     pricing: "Average trip cost: $1,600 (5 days)",
+    priceUSD: 1600,
     travel: "International flights, Metro, Buses, Taxis",
   },
   Rome: {
@@ -91,6 +97,7 @@ const DESTINATIONS = {
     desc: `The Eternal City, rich in history, architecture, and delicious Italian food.<br><br><strong>Culture:</strong> Rome is a living museum, where ancient traditions meet modern Italian life. Family, food, and faith are central. Enjoy lively piazzas, espresso bars, and centuries-old festivals.<br><strong>What makes it special:</strong> Rome's layers of history, art, and architecture are awe-inspiring. Every street tells a story.<br><br><strong>Best time to visit:</strong> April to June, September to October.<br><strong>Main attractions:</strong> Colosseum, Roman Forum, Vatican City, Trevi Fountain.<br><strong>Why visit:</strong> Ancient ruins, art, and authentic Italian cuisine.`,
     weather: "Weather: 21°C, Clear Sky",
     pricing: "Average trip cost: $1,900 (5 days)",
+    priceUSD: 1900,
     travel: "International flights, Metro, Buses, Taxis",
   },
   Dubai: {
@@ -104,6 +111,7 @@ const DESTINATIONS = {
     desc: `A futuristic city with luxury shopping, skyscrapers, and desert adventures.<br><br><strong>Culture:</strong> Dubai is a cosmopolitan hub where tradition meets innovation. Emirati hospitality, global cuisine, and a mix of Islamic and modern values shape the city.<br><strong>What makes it special:</strong> Dubai's rapid growth, luxury, and record-breaking attractions make it a city of superlatives.<br><br><strong>Best time to visit:</strong> November to March.<br><strong>Main attractions:</strong> Burj Khalifa, Dubai Mall, Palm Jumeirah, Desert Safari.<br><strong>Why visit:</strong> Modern architecture, shopping, and unique desert experiences.`,
     weather: "Weather: 33°C, Sunny",
     pricing: "Average trip cost: $2,500 (5 days)",
+    priceUSD: 2500,
     travel: "International flights, Metro, Buses, Taxis",
   },
   London: {
@@ -117,6 +125,7 @@ const DESTINATIONS = {
     desc: `A global city with royal history, museums, and vibrant theatre scene.<br><br><strong>Culture:</strong> London is a city of tradition and trendsetting. It is home to the monarchy, punk rock, and multicultural neighborhoods. Afternoon tea, football, and the arts are part of daily life.<br><strong>What makes it special:</strong> London is a crossroads of history and innovation, with something for everyone.<br><br><strong>Best time to visit:</strong> March to May.<br><strong>Main attractions:</strong> Tower Bridge, Buckingham Palace, British Museum, West End Theatre.<br><strong>Why visit:</strong> History, culture, and world-class entertainment.`,
     weather: "Weather: 16°C, Rainy",
     pricing: "Average trip cost: $2,100 (5 days)",
+    priceUSD: 2100,
     travel: "International flights, Underground, Buses, Taxis",
   },
   Bangkok: {
@@ -130,9 +139,81 @@ const DESTINATIONS = {
     desc: `A bustling city with ornate temples, street food, and lively markets.<br><br><strong>Culture:</strong> Bangkok is a city of contrasts, where ancient Buddhist traditions meet modern skyscrapers. The city is famous for its street food, night markets, and friendly locals.<br><strong>What makes it special:</strong> Bangkok's energy, flavors, and spiritual sites make it unforgettable.<br><br><strong>Best time to visit:</strong> November to February.<br><strong>Main attractions:</strong> Grand Palace, Wat Arun, Chatuchak Market, Floating Markets.<br><strong>Why visit:</strong> Vibrant street life, food, and culture.`,
     weather: "Weather: 30°C, Humid",
     pricing: "Average trip cost: $1,400 (5 days)",
+    priceUSD: 1400,
     travel: "International flights, Skytrain, Buses, Taxis",
   },
 };
+
+// Convert USD amounts in a string to Indian Rupees (INR) using a fixed exchange rate.
+// This replaces occurrences like "$1,500" with a localized INR string like "₹1,25,250".
+function convertUSDStringToINR(str) {
+  if (!str || typeof str !== "string") return str;
+  // Approximate conversion rate (USD -> INR). Adjust if you want a different rate.
+  const USD_TO_INR = 83.5;
+  return str.replace(/\$([\d,]+(?:\.\d+)?)/g, function (_, num) {
+    const usd = parseFloat(num.replace(/,/g, ""));
+    if (isNaN(usd)) return _;
+    const inr = Math.round(usd * USD_TO_INR);
+    return new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 0,
+    }).format(inr);
+  });
+}
+
+// Live exchange rate fetcher (USD -> INR) with caching and a safe fallback
+let __cachedUsdToInrRate = null;
+function getUSDToINRRate() {
+  if (__cachedUsdToInrRate) return Promise.resolve(__cachedUsdToInrRate);
+  const API = "https://api.exchangerate.host/latest?base=USD&symbols=INR";
+  return fetch(API)
+    .then((r) => r.json())
+    .then((data) => {
+      if (data && data.rates && data.rates.INR) {
+        __cachedUsdToInrRate = Number(data.rates.INR);
+        return __cachedUsdToInrRate;
+      }
+      __cachedUsdToInrRate = 83.5;
+      return __cachedUsdToInrRate;
+    })
+    .catch(() => {
+      __cachedUsdToInrRate = 83.5;
+      return __cachedUsdToInrRate;
+    });
+}
+
+// Render pricing showing both USD and INR (live rate when available)
+function showPricing(dest) {
+  const el = document.getElementById("detailsPricing");
+  if (!el) return;
+  let usd = dest.priceUSD;
+  if (!usd) {
+    const m = (dest.pricing || "").match(/\$([\d,]+(?:\.\d+)?)/);
+    if (m) usd = parseFloat(m[1].replace(/,/g, ""));
+  }
+  if (!usd) {
+    el.textContent = dest.pricing || "";
+    return;
+  }
+  el.textContent = `Average trip cost: $${usd.toLocaleString(
+    "en-US"
+  )} — calculating INR...`;
+  getUSDToINRRate().then((rate) => {
+    const inr = Math.round(usd * rate);
+    const usdStr = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      maximumFractionDigits: 0,
+    }).format(usd);
+    const inrStr = new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 0,
+    }).format(inr);
+    el.textContent = `Average trip cost: ${usdStr} — ${inrStr} (approx.)`;
+  });
+}
 
 function getQueryParam(name) {
   const url = new URL(window.location.href);
@@ -144,7 +225,7 @@ function renderDestinationDetails(destKey) {
   if (!dest) return;
   document.getElementById("detailsTitle").textContent = dest.title;
   document.getElementById("detailsDesc").innerHTML = dest.desc;
-  document.getElementById("detailsPricing").textContent = dest.pricing;
+  showPricing(dest);
   document.getElementById("detailsTravel").textContent = dest.travel;
   // Carousel images
   const carouselImages = document.getElementById("carouselImages");
@@ -281,7 +362,7 @@ function renderDestinationDetails(destKey) {
   if (!dest) return;
   document.getElementById("detailsTitle").textContent = dest.title;
   document.getElementById("detailsDesc").innerHTML = dest.desc;
-  document.getElementById("detailsPricing").textContent = dest.pricing;
+  showPricing(dest);
   document.getElementById("detailsTravel").textContent = dest.travel;
   // Set hero cover photo
   const heroImg = document.getElementById("detailsHeroImg");

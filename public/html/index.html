@@ -48,7 +48,7 @@
           Search for breathtaking destinations, view stunning images, and get
           real-time weather updates. Start planning your dream trip today!
         </p>
-        <a href="Destination.html" class="cta-btn">Start Exploring</a>
+        <a href="#" id="startExploringBtn" class="cta-btn">Book A Trip Now</a>
       </div>
     </section>
 
@@ -338,11 +338,29 @@
         var searchModal = document.getElementById("searchModal");
         var closeSearchModal = document.getElementById("closeSearchModal");
         var exploreBtn = document.getElementById("exploreBtn");
-        // Open modal on Explore icon click
         if (exploreBtn) {
           exploreBtn.onclick = function () {
+            window.location.href = "Destination.html";
+          };
+        }
+        var startExploringBtn = document.getElementById("startExploringBtn");
+        if (startExploringBtn) {
+          startExploringBtn.onclick = function (e) {
+            e.preventDefault();
             searchModal.style.display = "flex";
           };
+        }
+        // Show an informational alert when the user clicks Search in the Book A Trip modal
+        var advancedSearchForm = document.getElementById("advancedSearchForm");
+        if (advancedSearchForm) {
+          advancedSearchForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert(
+              "This will redirect to the search results page according to the user preference in future updates"
+            );
+            // Close the modal after showing the message
+            searchModal.style.display = "none";
+          });
         }
         // Close modal on close button click
         if (closeSearchModal) {
