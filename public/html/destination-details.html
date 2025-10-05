@@ -97,6 +97,14 @@
               <label for="exploreDate">Date</label>
               <input type="date" id="exploreDate" name="tripDate" required />
               <button type="submit" class="book-now-btn">Book Now</button>
+              <script>
+                document
+                  .getElementById("exploreForm")
+                  .addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    alert("Booking feature coming soon!");
+                  });
+                  </script>
             </form>
           </div>
         </div>

@@ -1,8 +1,5 @@
-// Travel Explorer Website - Main JS
-
 // Unsplash API setup
-const UNSPLASH_ACCESS_KEY = "QH6odDl_V2KEmfvC6zK7K-_3wrRASC4ytDFR26dGj1Y"; // Replace with your Unsplash API key
-
+const UNSPLASH_ACCESS_KEY = "QH6odDl_V2KEmfvC6zK7K-_3wrRASC4ytDFR26dGj1Y";
 const searchForm = document.querySelector("#search form");
 const searchInput = document.querySelector("#search input");
 const destinationsGrid = document.getElementById("destinationsGrid");
@@ -61,8 +58,7 @@ async function fetchDestinations(query) {
 }
 
 // OpenWeatherMap API setup
-const OPENWEATHER_API_KEY = "3be48b0bb896f18e2bdb99b4a7ecfb00"; // Use the same working API key as details page
-
+const OPENWEATHER_API_KEY = "3be48b0bb896f18e2bdb99b4a7ecfb00";
 const weatherModal = document.getElementById("weatherModal");
 const weatherDetails = document.getElementById("weatherDetails");
 const closeModal = document.getElementById("closeModal");
