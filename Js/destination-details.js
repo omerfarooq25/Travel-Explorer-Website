@@ -1,6 +1,5 @@
 // Destination data for each card
 const DESTINATIONS = {
-
   Paris: {
     title: "Paris, France",
     countryCode: "FR",
@@ -88,7 +87,7 @@ const DESTINATIONS = {
       "https://plus.unsplash.com/premium_photo-1697729775179-f9926eab0b31?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2FwZSUyMHRvd24lMjB0YWJsZSUyMG1vdW50YWlufGVufDB8MHwwfHx8MA%3D%3D",
       "https://images.unsplash.com/photo-1637083963580-9383f3b835bd?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://images.unsplash.com/photo-1636212962845-da175a828551?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "https://images.unsplash.com/photo-1575540538034-c69be309c367?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ViUyNkElMjBXYXRlcmZyb250fGVufDB8MHwwfHx8Mg%3D%3D",
+      "https://images.unsplash.com/photo-1575540538034-c69be309c367?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ViUyNkElMjBXYVRlcmZyb250fGVufDB8MHwwfHx8Mg%3D%3D",
       "https://images.unsplash.com/photo-1599070158776-9e331c420309?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://images.unsplash.com/photo-1575980202155-18b6c1e49169?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://images.unsplash.com/photo-1663411409190-4ea7f1ea76f5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -264,19 +263,55 @@ function getQueryParam(name) {
 }
 function renderDestinationDetails(destKey) {
   const dest = DESTINATIONS[destKey];
-  if (!dest) return;
+  if (!dest) {
+    document.body.innerHTML =
+      "<h1>Destination not found</h1><p>Please select a valid destination.</p>";
+    return;
+  }
+
   document.getElementById("detailsTitle").textContent = dest.title;
   document.getElementById("detailsDesc").innerHTML = dest.desc;
   showPricing(dest);
   document.getElementById("detailsTravel").textContent = dest.travel;
-  
+
+  // Set hero cover photo
+  const heroImg = document.getElementById("detailsHeroImg");
+  if (heroImg) {
+    heroImg.src = dest.images[0];
+    heroImg.alt = dest.title + " cover photo";
+  }
+
+  // Render gallery images (excluding the first image) as cards with overlay
+  const gallery = document.getElementById("detailsGallery");
+  if (gallery) {
+    gallery.innerHTML = "";
+    dest.images.slice(1).forEach((src, i) => {
+      const card = document.createElement("div");
+      card.className = "gallery-card";
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = dest.title + " gallery photo " + (i + 1);
+      const overlay = document.createElement("div");
+      overlay.className = "gallery-overlay";
+      const title = document.createElement("div");
+      title.className = "gallery-title";
+      title.textContent = dest.title.split(",")[0];
+      overlay.appendChild(title);
+      card.appendChild(img);
+      card.appendChild(overlay);
+      gallery.appendChild(card);
+    });
+  }
+
   // Set background image to the first image of the destination
   document.body.style.background = `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('${dest.images[0]}') no-repeat center center fixed`;
   document.body.style.backgroundSize = "cover";
-  
-  // Fetch real-time weather
-  let cityName = dest.title.split(",")[0];
-  fetchWeather(cityName, function (weatherText) {
+
+  // Fetch real-time weather with city and country code
+  let cityName = dest.title.split(",")[0].trim();
+  let countryCode = dest.countryCode || "";
+  let query = countryCode ? `${cityName},${countryCode}` : cityName;
+  fetchWeather(query, function (weatherText) {
     document.getElementById("detailsWeather").textContent = weatherText;
   });
 }
@@ -311,82 +346,86 @@ document.addEventListener("DOMContentLoaded", function () {
   const exploreBtn = document.getElementById("exploreBtn");
   if (exploreBtn) {
     exploreBtn.addEventListener("click", function () {
-      window.location.href = "Destination.html";
+      window.location.href = "Destination.html"; // Updated path
     });
   }
 });
 
-  // --- OpenWeatherMap Real-Time Weather Integration ---
-  const OPENWEATHERMAP_API_KEY = "3be48b0bb896f18e2bdb99b4a7ecfb00"; // User's OpenWeatherMap API key
-  function fetchWeather(city, callback) {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
-      city
-    )}&appid=${OPENWEATHERMAP_API_KEY}&units=metric`;
-    console.log("Weather API Query:", url); // Debug: show the query
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Weather API Response:", data); // Debug: show the response
-        if (data && data.weather && data.weather[0] && data.main) {
-          const weatherText = `Weather: ${Math.round(
-            data.main.temp
-          )}°C, ${data.weather[0].description.replace(/\b\w/g, (l) =>
-            l.toUpperCase()
-          )}`;
-          callback(weatherText);
-        } else {
-          callback("Weather: Not available");
-        }
-      })
-      .catch((err) => {
-        console.log("Weather API Error:", err);
+// --- OpenWeatherMap Real-Time Weather Integration ---
+const OPENWEATHERMAP_API_KEY = "3be48b0bb896f18e2bdb99b4a7ecfb00"; // User's OpenWeatherMap API key
+function fetchWeather(city, callback) {
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
+    city
+  )}&appid=${OPENWEATHERMAP_API_KEY}&units=metric`;
+  console.log("Weather API Query:", url); // Debug: show the query
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Weather API Response:", data); // Debug: show the response
+      if (data && data.weather && data.weather[0] && data.main) {
+        const weatherText = `Weather: ${Math.round(
+          data.main.temp
+        )}°C, ${data.weather[0].description.replace(/\b\w/g, (l) =>
+          l.toUpperCase()
+        )}`;
+        callback(weatherText);
+      } else {
         callback("Weather: Not available");
-      });
-  }
+      }
+    })
+    .catch((err) => {
+      console.log("Weather API Error:", err);
+      callback("Weather: Not available");
+    });
+}
 
-  // Update renderDestinationDetails to use real-time weather (direct definition)
-  function renderDestinationDetails(destKey) {
-    const dest = DESTINATIONS[destKey];
-    if (!dest) return;
-    document.getElementById("detailsTitle").textContent = dest.title;
-    document.getElementById("detailsDesc").innerHTML = dest.desc;
-    showPricing(dest);
-    document.getElementById("detailsTravel").textContent = dest.travel;
-    // Set hero cover photo
-    const heroImg = document.getElementById("detailsHeroImg");
-    if (heroImg) {
-      heroImg.src = dest.images[0];
-      heroImg.alt = dest.title + " cover photo";
-    }
-    // Render gallery images (excluding the first image) as cards with overlay
-    const gallery = document.getElementById("detailsGallery");
-    if (gallery) {
-      gallery.innerHTML = "";
-      dest.images.slice(1).forEach((src, i) => {
-        const card = document.createElement("div");
-        card.className = "gallery-card";
-        const img = document.createElement("img");
-        img.src = src;
-        img.alt = dest.title + " gallery photo " + (i + 1);
-        const overlay = document.createElement("div");
-        overlay.className = "gallery-overlay";
-        const title = document.createElement("div");
-        title.className = "gallery-title";
-        title.textContent = dest.title.split(",")[0];
-        overlay.appendChild(title);
-        card.appendChild(img);
-        card.appendChild(overlay);
-        gallery.appendChild(card);
-      });
-    }
-    // Set background image to the first image of the destination
-    document.body.style.background = `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('${dest.images[0]}') no-repeat center center fixed`;
-    document.body.style.backgroundSize = "cover";
-    // Fetch real-time weather with city and country code
-    let cityName = dest.title.split(",")[0].trim();
-    let countryCode = dest.countryCode || "";
-    let query = countryCode ? `${cityName},${countryCode}` : cityName;
-    fetchWeather(query, function (weatherText) {
-      document.getElementById("detailsWeather").textContent = weatherText;
+// Update renderDestinationDetails to use real-time weather (direct definition)
+function renderDestinationDetails(destKey) {
+  const dest = DESTINATIONS[destKey];
+  if (!dest) {
+    document.body.innerHTML =
+      "<h1>Destination not found</h1><p>Please select a valid destination.</p>";
+    return;
+  }
+  document.getElementById("detailsTitle").textContent = dest.title;
+  document.getElementById("detailsDesc").innerHTML = dest.desc;
+  showPricing(dest);
+  document.getElementById("detailsTravel").textContent = dest.travel;
+  // Set hero cover photo
+  const heroImg = document.getElementById("detailsHeroImg");
+  if (heroImg) {
+    heroImg.src = dest.images[0];
+    heroImg.alt = dest.title + " cover photo";
+  }
+  // Render gallery images (excluding the first image) as cards with overlay
+  const gallery = document.getElementById("detailsGallery");
+  if (gallery) {
+    gallery.innerHTML = "";
+    dest.images.slice(1).forEach((src, i) => {
+      const card = document.createElement("div");
+      card.className = "gallery-card";
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = dest.title + " gallery photo " + (i + 1);
+      const overlay = document.createElement("div");
+      overlay.className = "gallery-overlay";
+      const title = document.createElement("div");
+      title.className = "gallery-title";
+      title.textContent = dest.title.split(",")[0];
+      overlay.appendChild(title);
+      card.appendChild(img);
+      card.appendChild(overlay);
+      gallery.appendChild(card);
     });
   }
+  // Set background image to the first image of the destination
+  document.body.style.background = `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('${dest.images[0]}') no-repeat center center fixed`;
+  document.body.style.backgroundSize = "cover";
+  // Fetch real-time weather with city and country code
+  let cityName = dest.title.split(",")[0].trim();
+  let countryCode = dest.countryCode || "";
+  let query = countryCode ? `${cityName},${countryCode}` : cityName;
+  fetchWeather(query, function (weatherText) {
+    document.getElementById("detailsWeather").textContent = weatherText;
+  });
+}

@@ -338,25 +338,56 @@
 /* -------------- Header / Site Elements -------------- */
 #headerTitle {
   background: #772f1a;
-  color: #fff;
-  padding: 18px 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 28px 0 20px 0;
   position: sticky;
   top: 0;
-  z-index: 90;
+  z-index: 100;
 }
 .header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+}
+.header-left {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 16px;
+  gap: 10px;
+}
+.header-right {
+  display: flex;
+  gap: 20px;
+}
+.header-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+.header-icon i {
+  font-size: 1.5rem;
+}
+.header-icon span {
+  font-size: 0.9rem;
+}
+.header-logo {
+  font-size: 3.2rem;
 }
 .header-title-link {
   font-family: "DM Serif Display", serif;
+  font-size: 3.2rem;
+  font-weight: 400;
+  letter-spacing: 2px;
   color: #fff;
   text-decoration: none;
-  font-size: 1.8rem;
+  transition: color 0.2s;
+}
+.header-title-link:hover {
+  color: #f5853f;
 }
 
 /* -------------- Destinations grid / cards -------------- */
@@ -400,6 +431,40 @@
   right: 12px;
   top: 8px;
   cursor: pointer;
+}
+
+/* Fixed gap between header and background image */
+body {
+  margin: 0; /* Removed default margin */
+  padding: 0; /* Removed default padding */
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("https://plus.unsplash.com/premium_photo-1663088923485-58685ba14d5f?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+      no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Fixed search icon alignment */
+.header-search-input-wrapper {
+  position: relative;
+  width: 180px;
+}
+.header-search-icon {
+  position: absolute;
+  left: 10px; /* Adjusted position */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #772f1a;
+  font-size: 1.1rem;
+  pointer-events: none;
+  z-index: 2;
+}
+.header-search-input-wrapper input[type="text"] {
+  width: 100%;
+  padding: 7px 10px 7px 30px; /* Adjusted padding to fit icon */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
 }
 
 /* Utilities */
